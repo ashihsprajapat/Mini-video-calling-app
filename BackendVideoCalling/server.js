@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
     socket.on('initiateCall', ({ userId, signalData, myId }) => {
         io.to(userId).emit('incomingCall', { signalData, from: myId });
     });
-    
+
     socket.on('answerCall', (data) => {
         io.to(data.to).emit('callAccepted', data.signal);
     });
@@ -35,6 +35,8 @@ io.on('connection', (socket) => {
         console.log('User disconnected:', socket.id);
     });
 });
+
+app.get("/", (req, res) => { res.send("ok its working ") })
 
 const port = process.env.PORT || 4000;
 server.listen(port, () => console.log(`server is running at ${port}`));
