@@ -1,8 +1,7 @@
-
-const http = require("http");
-const express = require("express");
-const { Server } = require('socket.io');
-const cors = require('cors');
+import http from 'http'
+import express from 'express'
+import  {Server} from 'socket.io'
+import cors from 'cors'
 
 const app = express();
 const server = http.createServer(app);
@@ -36,7 +35,6 @@ io.on('connection', (socket) => {
     });
 });
 
-app.get("/", (req, res) => { res.send("ok its working ") })
 
 const port = process.env.PORT || 4000;
 server.listen(port, () => console.log(`server is running at ${port}`));
