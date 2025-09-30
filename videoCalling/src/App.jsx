@@ -3,7 +3,8 @@ import { io } from 'socket.io-client';
 import SimplePeer from 'simple-peer';
 import './App.css';
 
-const socket = io('http://localhost:4000'); // server URL
+const socket = io(import.meta.env.VITE_BACKEND_URL); // server URL
+
 
 function App() {
 
